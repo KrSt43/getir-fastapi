@@ -10,6 +10,13 @@ from .database import SessionLocal
 
 app = FastAPI()
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Update this with your Django frontend URL
+    allow_credentials=True,
+    allow_methods=["GET"],
+    allow_headers=["*"],
+)
 
 def get_db():
     db = SessionLocal()
