@@ -1,1 +1,1 @@
-web: gunicorn -w 4 -k uvicorn.workers.UvicornWorker Driver.main:app
+web: uvicorn Driver.main:app
