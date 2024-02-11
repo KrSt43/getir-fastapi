@@ -39,8 +39,11 @@ def making_response(code, msg, limit, offset, drivers):
     }
     return response
 
-
 @app.get("/")
+async def read_root():
+    return {"message": "Hello World :)"}
+
+@app.get("/drivers/")
 async def read_drivers(db: db_dependency, max_score: float = None, min_score: float = None, start_date: str = None,
                        end_date: str = None, limit: int = Query(default=100, gt=0, le=150),
                        offset: int = Query(default=0, gt=-1)):
